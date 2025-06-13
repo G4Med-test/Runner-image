@@ -1,7 +1,7 @@
 FROM ghcr.io/actions/actions-runner:latest
 LABEL maintainer="carlo.mancini-terracciano@uniroma1.it"
 
-ARG APPTAINER_VERSION
+ARG APPTAINER_VERSION=1.3.2
 
 #labels
 LABEL org.label-schema.apptainer-version=$APPTAINER_VERSION
