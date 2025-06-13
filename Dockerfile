@@ -12,7 +12,6 @@ LABEL org.label-schema.url="https://github.com/carlomt/docker-geant4"
 LABEL org.label-schema.docker.cmd="docker build -t carlomt/apptainer:latest --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --no-cache=true ."
 
 ENV LANG=C.UTF-8
-RUN ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
