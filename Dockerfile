@@ -11,6 +11,9 @@ LABEL org.label-schema.description="Geant4 Docker image"
 LABEL org.label-schema.url="https://github.com/carlomt/docker-geant4"
 LABEL org.label-schema.docker.cmd="docker build -t carlomt/apptainer:latest --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') --no-cache=true ."
 
+# Switch to root for Apptainer installation
+USER root
+
 ENV LANG=C.UTF-8
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
@@ -27,6 +30,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y clean && \
     rm -rf /var/cache/apt/archives/* && \
     rm -rf /var/lib/apt/lists/*
+
+# Switch to root for Apptainer installation
+USER runner
 
 # Default command to execute if none is provided to docker run
 CMD ["bash"]
